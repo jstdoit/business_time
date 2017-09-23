@@ -20,8 +20,11 @@ describe "time extensions" do
     BusinessTime::Config.holidays << Date.parse("July 4, 2010")
     BusinessTime::Config.holidays << Date.parse("July 5, 2010")
 
+    BusinessTime::Config.weekends_off << Date.parse("Sept 23, 2017")
+
     assert(!Time.parse("July 4th, 2010 1:15 pm").workday?)
     assert(!Time.parse("July 5th, 2010 2:37 pm").workday?)
+    assert(Time.parse("Sept 23th, 2017 2:37 pm").workday?)
   end
 
 
